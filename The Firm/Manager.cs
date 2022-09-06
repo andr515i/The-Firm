@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace The_Firm
 {
-    internal class Manager : Employee
+    internal class Manager : Employee  // inherits employee
     {
         private protected int phoneNumber;
 
         public int PhoneNumber
         {
             get { return phoneNumber; }
-            set { phoneNumber = value; }
         }
 
+        // same story here, we inherit the values, and add phonenumber aswell
         public Manager(string firstName, string lastName, int cprNumber, int phoneNumber):base(firstName, lastName, cprNumber)
         {
             this.phoneNumber = phoneNumber;
         }
-        internal virtual void GetData()
+        protected internal override void GetData()  // and then we print it out
         {
             Console.WriteLine(this.firstName + " " + this.lastName + " " + this.cpr + " " + this.phoneNumber);
         }

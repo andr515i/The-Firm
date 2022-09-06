@@ -6,20 +6,25 @@ using System.Threading.Tasks;
 
 namespace The_Firm
 {
-    class Projectmanager : Manager
+    sealed class Projectmanager : Manager  // projectmanager -> manager -> employee
     {
         private string email;
 
         public string Email
         {
             get { return email; }
-            set { email = value; }
         }
+
+        // this time we add email aswell to the manager's ctor
         public Projectmanager(string firstName, string lastName, int cprNumber, int phoneNumber, string email) : base(firstName, lastName, cprNumber, phoneNumber)
         {
             this.email = email;
+
+
         }
-        internal virtual void GetData()
+
+        // and print it  out
+        protected internal override void GetData()
         {
             Console.WriteLine(this.firstName + " " + this.lastName + " " + this.cpr + " " + this.phoneNumber + " " + this.email);
         }
